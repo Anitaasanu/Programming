@@ -32,15 +32,18 @@ def Follow(a):
                     if i[0].isupper():
                         b=f1[i[0]]
                         while 'v' in b:
+                            i=i[1:]
+                            b.pop(b.index('v'))
+                            f+=b
+                            if len(i) == 0:
+                                f+=f2[k]
+                                break
                             if i[0].isupper():
-                                print i[0]
-                                i=i[1:]
-                                b.pop(b.index('v'))
-                                f+=b
-                                if len(i) == 0:
-                                    f+=f2[k]
-                                    break
-                                b= f1[i[0]]
+                                b += f1[i[0]]
+                            else :
+                                b.append(i[0])
+                        else:
+                            b = b.append(i[0])
                         f+=b
                 elif len(i) == 0:
                     f+=f2[k]
