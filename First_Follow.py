@@ -53,4 +53,4 @@ for i in d:
 for i in d:
     f2[i]=list(set(Follow(i)))
     f2['S'] = ['$']
-    print i,f2[i]
+print i,f2[i]
