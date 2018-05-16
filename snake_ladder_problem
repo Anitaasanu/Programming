@@ -1,0 +1,41 @@
+t=int(input())
+moves={}
+def bfs(e,n,moves):
+    c=0
+    q=[]
+    visited=[False]*n
+    for i in range(1,7):
+        if i in moves:
+            q.append(moves[i])
+            visited[moves[i]-1]
+            continue
+        visited[i-1] = True
+        q.append(i)
+    
+    while True:
+        c+=1
+        l=len(q)
+        # print(q)
+        for i in range(l):
+            node=q.pop(0)
+            if node==n:
+                return c
+            for k in range(1,7):
+                if node+k <= 30 and not visited[node+k-1]:
+                    q.append(node+k)
+                    visited[node-1+k]=True
+        if len(q)==0:
+            return -1
+##    return -1
+def snake_and_ladder(a,moves,n):
+    i=0
+    while i+1<len(a):
+        moves[a[i]]=a[i+1]
+        i+=2
+    return bfs(1,30,moves)
+while t>0:
+    n=int(input())
+    a=list(map(int,input().split()))
+    f_r=snake_and_ladder(a,moves,30)
+    print (f_r)
+    t-=1
