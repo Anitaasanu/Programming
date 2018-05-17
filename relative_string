@@ -1,0 +1,26 @@
+t=int(input())
+def relative_sorting(a1,a2,n1,n2):
+    d={}
+    for i in range(n2):
+        if a2[i] not in d:
+            d[a2[i]]=i
+    s=[]
+    s1=[]
+    for i in range(n1):
+        if a1[i] in d:
+            s.append([a1[i],d[a1[i]]])
+        else:
+            s1.append(a1[i])
+    s1.sort()
+    s=sorted(s,key=lambda x:x[1])
+    ans=[]
+    for i in s:
+        ans.append(i[0])
+    ans+=s1
+    print (' '.join([str(i) for i in ans]))
+while t>0:
+    n1,n2=map(int,input().split())
+    a1=list(map(int,input().split()))
+    a2=list(map(int,input().split()))
+    relative_sorting(a1,a2,n1,n2)
+    t-=1
